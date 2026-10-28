@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кофейня «Помол» | Спешелти кофе в Таганроге</title>
+  <meta name="description" content="Спешелти кофейня «Помол» в Таганроге на Петровской 97. Свежая обжарка, альтернативные методы заваривания (V60, фильтр), авторские напитки и десерты.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #141414;
+      --card-bg: #1e1e1e;
+      --accent: #e58e26;
+      --accent-light: #f6b93b;
+      --text: #f5f5f5;
+      --text-muted: #999;
+      --border: rgba(255, 255, 255, 0.1);
+      --font-title: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header { background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 18px 0; position: sticky; top: 0; z-index: 100; }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 24px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-light); }
+    .btn { display: inline-block; padding: 12px 26px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #000; font-weight: 700; }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-outline { border: 1px solid var(--border); color: #fff; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero { padding: 110px 0 80px; text-align: center; }
+    .badge { display: inline-block; padding: 6px 16px; border-radius: 50px; background: rgba(229, 142, 38, 0.15); border: 1px solid rgba(229, 142, 38, 0.3); color: var(--accent-light); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-title); font-size: 3.8rem; line-height: 1.1; font-weight: 700; margin-bottom: 20px; }
+    .hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto 36px; }
+    .hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 60px 0; }
+    .feat { background: var(--card-bg); border: 1px solid var(--border); padding: 32px 24px; border-radius: 12px; text-align: center; }
+    .feat span { font-size: 2.2rem; display: block; margin-bottom: 12px; }
+    .feat h3 { font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 8px; }
+    .feat p { color: var(--text-muted); font-size: 0.9rem; }
+
+    .menu-sec { padding: 60px 0; }
+    .sec-head { text-align: center; margin-bottom: 40px; }
+    .sec-head h2 { font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 8px; }
+    .sec-head p { color: var(--text-muted); }
+    .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .menu-card { background: var(--card-bg); border: 1px solid var(--border); padding: 22px 26px; border-radius: 10px; display: flex; justify-content: space-between; align-items: baseline; }
+    .menu-card h4 { font-size: 1.1rem; margin-bottom: 4px; }
+    .menu-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .menu-card .price { font-family: var(--font-title); font-size: 1.3rem; font-weight: 700; color: var(--accent); margin-left: 20px; white-space: nowrap; }
+
+    .loc-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 48px 36px; margin: 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .loc-box h2 { font-family: var(--font-title); font-size: 2.2rem; margin-bottom: 20px; }
+    .loc-info p { margin-bottom: 12px; color: var(--text-muted); }
+    .loc-info strong { color: #fff; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .features { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .loc-box { grid-template-columns: 1fr; padding: 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">ПОМОЛ<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">О нас</a>
+        <a href="#menu">Зерно & Меню</a>
+        <a href="#contacts">Локация</a>
+        <a href="tel:+79518213540" class="btn btn-primary" style="margin-left: 16px;">Позвонить</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">Таганрог • Петровская, 97</span>
+        <h1>Чистый вкус спешелти кофе</h1>
+        <p>Для тех, кто понимает разницу в сортах зерна, терруаре и правильной экстракции. Завариваем каждый шот со знанием дела.</p>
+        <div class="hero-btns">
+          <a href="#menu" class="btn btn-primary">Посмотреть меню</a>
+          <a href="https://yandex.ru/maps/org/153199280583" target="_blank" class="btn btn-outline">Маршрут на карте</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="features" id="about">
+        <div class="feat">
+          <span>⚖️</span>
+          <h3>Точный помол</h3>
+          <p>Индивидуальная калибровка жерновов под каждый сорт кофе и влажность воздуха.</p>
+        </div>
+        <div class="feat">
+          <span>💧</span>
+          <h3>Альтернатива (V60 / Batch)</h3>
+          <p>Ручное заваривание капельными методами, раскрывающее ягодные и цветочные ноты.</p>
+        </div>
+        <div class="feat">
+          <span>🥐</span>
+          <h3>Крафтовые десерты</h3>
+          <p>Свежие круассаны, крафтовое печенье и легкие снеки без белого сахара.</p>
+        </div>
+      </div>
+
+      <section class="menu-sec" id="menu">
+        <div class="sec-head">
+          <h2>Кофейная карта</h2>
+          <p>Классика эспрессо и фильтр свежего урожая</p>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div>
+              <h4>Фильтр-кофе (Batch Brew)</h4>
+              <p>Эфиопия Иргачефф натуральной обработки. Ноты бергамота, черники и персика.</p>
+            </div>
+            <div class="price">190 ₽</div>
+          </div>
+          <div class="menu-card">
+            <div>
+              <h4>Воронка V60 (Hand Drip)</h4>
+              <p>Ручной пролив моносорта на ваш выбор (Кения, Колумбия, Руанда).</p>
+            </div>
+            <div class="price">250 ₽</div>
+          </div>
+          <div class="menu-card">
+            <div>
+              <h4>Флэт Уайт</h4>
+              <p>Двойной эспрессо и шелковистое молоко правильной температуры 60°C.</p>
+            </div>
+            <div class="price">220 ₽</div>
+          </div>
+          <div class="menu-card">
+            <div>
+              <h4>Капучино на овсяном</h4>
+              <p>Насыщенный шот спешелти с нежной растительной пенкой.</p>
+            </div>
+            <div class="price">260 ₽</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="loc-box" id="contacts">
+        <div class="loc-info">
+          <h2>Ждем в гости на чашку кофе</h2>
+          <p>📍 <strong>Адрес:</strong> г. Таганрог, ул. Петровская, 97</p>
+          <p>🕒 <strong>Часы работы:</strong> Ежедневно с 08:00 до 21:00</p>
+          <p>📞 <strong>Телефон:</strong> +7 (951) 821-35-40</p>
+          <div style="margin-top: 24px;">
+            <a href="https://yandex.ru/maps/org/153199280583" target="_blank" class="btn btn-primary">Яндекс Карты</a>
+          </div>
+        </div>
+        <div style="background: rgba(229,142,38,0.08); border-radius: 12px; padding: 32px; text-align: center;">
+          <h3 style="font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 10px;">Зерно с собой</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Смолотим под ваш способ заваривания (турка, гейзер, чашка, фильтр) прямо при вас бесплатно.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Спешелти-кофейня «Помол». Таганрог. Демонстрационный прототип.</p>
+    </div>
+  </footer>
+</body>
+</html>
